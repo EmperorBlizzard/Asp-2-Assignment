@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 8px;
+    border-radius: 20%/50%;
     padding: 12px 25px;
     background-color: transparent;
     color: var(--color-gray-900);
@@ -24,6 +24,18 @@
     border: 1px solid var(--color-main);
     background-color: var(--color-main);
     color: var(--color-white);
+
+    &:hover {
+        border: 1px solid var(--color-gray-800);
+        background-color: var(--color-gray-800);
+        color: var(--color-white);
+    }
+}
+
+.btn-white {
+    border: 1px solid var(--color-white);
+    background-color: var(--color-white);
+    color: var(--color-black);
 
     &:hover {
         border: 1px solid var(--color-gray-800);
