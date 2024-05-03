@@ -6,10 +6,10 @@ input:not([type="checkbox"]) {
     font-family: "manrope";
     font-weight: 400 !important;
     padding: 10px 16px;
-    border-radius: 8px;
-    border: 1px solid var(--color-gray-400);
-    background-color: var(--color-gray-100);
-    color: var(--color-gray-800);
+    border-radius: 999px;
+    border: 1px solid var(--color-light-gray);
+    background-color: var(--color-white);
+    color: var(--color-main);
 
     &::placeholder {
         opacity: 0.5;
