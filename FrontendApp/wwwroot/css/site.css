@@ -155,7 +155,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 20%/50%;
+  border-radius: 999px;
   padding: 12px 25px;
   background-color: transparent;
   color: var(--color-gray-900);
