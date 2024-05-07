@@ -33,62 +33,62 @@
 h1 {
   line-height: 160%;
   font-weight: 400;
-  color: var(--color-gray-700);
+  color: var(--color-text);
   font-family: var(--font-standard);
   line-height: 120% !important;
   font-weight: 800;
-  color: var(--color-gray-900);
+  color: var(--color-main) !important;
   font-size: 2em !important;
 }
 
 h2 {
   line-height: 160%;
   font-weight: 400;
-  color: var(--color-gray-700);
+  color: var(--color-text);
   font-family: var(--font-standard);
   line-height: 120% !important;
   font-weight: 800;
-  color: var(--color-gray-900);
+  color: var(--color-main) !important;
   font-size: 1.375em !important;
 }
 
 h3 {
   line-height: 160%;
   font-weight: 400;
-  color: var(--color-gray-700);
+  color: var(--color-text);
   font-family: var(--font-standard);
   line-height: 120% !important;
   font-weight: 800;
-  color: var(--color-gray-900);
+  color: var(--color-main) !important;
   font-size: 1.25em !important;
 }
 
 h4 {
   line-height: 160%;
   font-weight: 400;
-  color: var(--color-gray-700);
+  color: var(--color-text);
   font-family: var(--font-standard);
   line-height: 120% !important;
   font-weight: 800;
-  color: var(--color-gray-900);
+  color: var(--color-main) !important;
   font-size: 1.125em !important;
 }
 
 h5 {
   line-height: 160%;
   font-weight: 400;
-  color: var(--color-gray-700);
+  color: var(--color-text);
   font-family: var(--font-standard);
   line-height: 120% !important;
   font-weight: 800;
-  color: var(--color-gray-900);
+  color: var(--color-main) !important;
   font-size: 1em !important;
 }
 
 .font-16 {
   line-height: 160%;
   font-weight: 400;
-  color: var(--color-gray-700);
+  color: var(--color-text);
   font-family: var(--font-standard);
   line-height: 170% !important;
   font-size: 1em;
@@ -97,7 +97,7 @@ h5 {
 .font-14 {
   line-height: 160%;
   font-weight: 400;
-  color: var(--color-gray-700);
+  color: var(--color-text);
   font-family: var(--font-standard);
   line-height: 150% !important;
   font-size: 0.875em;
@@ -271,9 +271,22 @@ form {
 }
 form .input-group {
   display: grid;
+  position: relative;
+  border: 1px solid var(--color-light-gray);
+  border-radius: 999px;
 }
 form .input-group input {
   padding: 16px;
+  border: none;
+  background-color: transparent;
+}
+form .input-group label {
+  position: absolute;
+  top: 0;
+  left: 25px;
+  margin-top: -10px;
+  background-color: var(--color-white);
+  font-size: 12px;
 }
 form .checkbox-group input[type=checkbox] {
   margin-right: 10px;
@@ -300,7 +313,7 @@ form .field-validation-error {
 a {
   line-height: 160%;
   font-weight: 400;
-  color: var(--color-gray-700);
+  color: var(--color-text);
   font-family: var(--font-standard);
   color: var(--color-theme);
   text-decoration: none;
