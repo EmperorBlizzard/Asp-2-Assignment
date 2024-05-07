@@ -19,6 +19,7 @@
   --color-system-success: #22C55E;
   --color-system-warning: #FFBA08;
   --color-system-info: #4C82F7;
+  --color-danger: #F5D7DA;
   --color-gray-100: #f3f6ff;
   --color-gray-200: #eff2fc;
   --color-gray-300: #e2e5f1;
@@ -321,4 +322,46 @@ a {
 }
 a:hover {
   text-decoration: underline;
+}
+
+.alert {
+  border-radius: 8px;
+  font-size: 1rem;
+  padding: 12px 1rem;
+  display: block;
+}
+.alert .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alert-dark {
+  background-color: var(--color-gray-900);
+  color: var(--color-gray-900);
+}
+
+.alert-gray {
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-800);
+}
+
+.alert-info {
+  background-color: var(--color-info);
+  color: var(--color-gray-800);
+}
+
+.alert-success {
+  background-color: var(--color-success);
+  color: var(--color-gray-800);
+}
+
+.alert-warning {
+  background-color: var(--color-warning);
+  color: var(--color-gray-800);
+}
+
+.alert-danger {
+  background-color: var(--color-danger);
+  color: var(--color-gray-800);
 }

@@ -4,13 +4,14 @@
 
 <section class="signup">
     <div class="container">
-        <EditForm EditContext="editContext" OnSubmit="HandleSubmit" FormName="SignUp">
+        <div class="top-nav">
+            <i class="fa-solid fa-chevron-left"></i>
+            <h4>Sign up</h4>
+        </div>
+        <h1>Sign Up</h1>
+        <EditForm class="signup-form" EditContext="editContext" OnSubmit="HandleSubmit" FormName="SignUp">
             <DataAnnotationsValidator />
-            <div class="top-nav">
-                <i class="fa-solid fa-chevron-left"></i>
-                <h4>Sign up</h4>
-            </div>
-            <h1>Sign Up</h1>
+            
             <div class="form-firstname input-group">
                 <label class="" for="Form.FirstName">FIRSTNAME</label>
                 <InputText @bind-Value="Form.FirstName" id="Form.FirstName"/>
