@@ -52,108 +52,23 @@
 
 .signup .container .signup-form .form-firstname {
     grid-area: firstname;
-    position: relative;
-    border: 1px solid var(--color-light-gray);
-    border-radius: 999px;
 }
-
-    .signup .container .signup-form .form-firstname label {
-        position: absolute;
-        top: 0;
-        left: 25px;
-        margin-top: -10px;
-        background-color: var(--color-white);
-        font-size: 12px;
-    }
-
-    .signup .container .signup-form .form-firstname .signup-input {
-        border: none;
-        background-color: transparent;
-    }
 
 .signup .container .signup-form .form-lastname {
     grid-area: lastname;
-    position: relative;
-    border: 1px solid var(--color-light-gray);
-    border-radius: 999px;
 }
-
-    .signup .container .signup-form .form-lastname label {
-        position: absolute;
-        top: 0;
-        left: 25px;
-        margin-top: -10px;
-        background-color: var(--color-white);
-        font-size: 12px;
-    }
-
-    .signup .container .signup-form .form-lastname .signup-input {
-        border: none;
-        background-color: transparent;
-    }
 
 .signup .container .signup-form .form-email {
     grid-area: email;
-    position: relative;
-    border: 1px solid var(--color-light-gray);
-    border-radius: 999px;
 }
-
-    .signup .container .signup-form .form-email label {
-        position: absolute;
-        top: 0;
-        left: 25px;
-        margin-top: -10px;
-        background-color: var(--color-white);
-        font-size: 12px;
-    }
-
-    .signup .container .signup-form .form-email .signup-input {
-        border: none;
-        background-color: transparent;
-    }
 
 .signup .container .signup-form .form-password {
     grid-area: password;
-    position: relative;
-    border: 1px solid var(--color-light-gray);
-    border-radius: 999px;
 }
-
-    .signup .container .signup-form .form-password label {
-        position: absolute;
-        top: 0;
-        left: 25px;
-        margin-top: -10px;
-        background-color: var(--color-white);
-        font-size: 12px;
-    }
-
-    .signup .container .signup-form .form-password .signup-input {
-        border: none;
-        background-color: transparent;
-    }
 
 .signup .container .signup-form .form-confirm {
     grid-area: confirm;
-    position: relative;
-    border: 1px solid var(--color-light-gray);
-    border-radius: 999px;
 }
-
-    .signup .container .signup-form .form-confirm label {
-        position: absolute;
-        top: 0;
-        left: 25px;
-        margin-top: -10px;
-        background-color: var(--color-white);
-        font-size: 12px;
-    }
-
-    .signup .container .signup-form .form-confirm .signup-input {
-        border: none;
-        background-color: transparent;
-    }
 
 .signup .container .signup-form button {
     grid-area: button;
