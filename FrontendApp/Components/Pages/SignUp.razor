@@ -1,0 +1,89 @@
+﻿@page "/SignUp"
+@using System.ComponentModel.DataAnnotations
+@using FrontendApp.ViewModels
+
+<section class="signup">
+    <div class="container">
+        <EditForm EditContext="editContext" OnSubmit="HandleSubmit" FormName="SignUp">
+            <DataAnnotationsValidator />
+            <div class="top-nav">
+                <i class="fa-solid fa-chevron-left"></i>
+                <h4>Sign up</h4>
+            </div>
+            <h1>Sign Up</h1>
+            <div class="form-firstname input-group">
+                <label class="" for="Form.FirstName">FIRSTNAME</label>
+                <InputText @bind-Value="Form.FirstName" id="Form.FirstName"/>
+                <div></div>
+            </div>
+            <div class="form-lastname input-group">
+                <label class="" for="Form.LastName">LASTTNAME</label>
+                <InputText @bind-Value="Form.LastName" id="Form.LastName" />
+                <div></div>
+            </div>
+            <div class="form-email input-group">
+                <label class="" for="Form.Email">EMAÌL</label>
+                <InputText @bind-Value="Form.Email" id="Form.Email" />
+                <div></div>
+            </div>
+            <div class="form-password input-group">
+                <label class="" for="Form.Password">PASSWORD</label>
+                <InputText @bind-Value="Form.Password" id="Form.Password" />
+                <div></div>
+            </div>
+            <div class="form-confirm input-group">
+                <label class="" for="Form.ConfirmPassword">CONFIRMPASSWORD</label>
+                <InputText @bind-Value="Form.ConfirmPassword" id="Form.ConfirmPassword" />
+                <div></div>
+            </div>
+            <button class="btn btn-main" type="submit">Sign Up</button>
+
+        </EditForm>
+
+        <p class="have-account font-16">Already have an account? <a href="#">Sign in.</a></p>
+
+        <div class="socials">
+            <a class="facebook" href="./facebook.html">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a class="twitter" href="#">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a class="google" href="#">
+                <i class="fa-brands fa-google-plus-g"></i>
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+        
+
+
+
+@code {
+    private SignUpViewModel Form;
+    private EditContext editContext = null!;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        {
+            Form = new SignUpViewModel();
+            editContext = new EditContext(Form);
+        }
+    }
+    private void ValidateField (ChangeEventArgs e)
+    {
+
+        editContext.Validate();
+    }
+
+
+    private void HandleSubmit()
+    {
+        
+
+    }
+}
