@@ -4,38 +4,40 @@
 
 <section class="signup">
     <div class="container">
+        <div class="top-nav">
+            <i class="fa-solid fa-chevron-left"></i>
+            <h4>Sign up</h4>
+        </div>
+        <div class=""></div>
         <EditForm EditContext="editContext" OnSubmit="HandleSubmit" FormName="SignUp">
             <DataAnnotationsValidator />
-            <div class="top-nav">
-                <i class="fa-solid fa-chevron-left"></i>
-                <h4>Sign up</h4>
-            </div>
+            
             <h1>Sign Up</h1>
             <div class="form-firstname input-group">
-                <label class="" for="Form.FirstName">FIRSTNAME</label>
+                <label  for="Form.FirstName">FIRST NAME</label>
                 <InputText @bind-Value="Form.FirstName" id="Form.FirstName"/>
-                <div></div>
             </div>
+            <ValidationMessage For="@(() => Form.FirstName)" />
             <div class="form-lastname input-group">
-                <label class="" for="Form.LastName">LASTTNAME</label>
+                <label for="Form.LastName">LAST NAME</label>
                 <InputText @bind-Value="Form.LastName" id="Form.LastName" />
-                <div></div>
             </div>
+            <ValidationMessage For="@(() => Form.LastName)" />
             <div class="form-email input-group">
-                <label class="" for="Form.Email">EMAÌL</label>
-                <InputText @bind-Value="Form.Email" id="Form.Email" />
-                <div></div>
+                <label for="Form.Email">EMAIL</label>
+                <InputText type="email" @bind-Value="Form.Email" id="Form.Email" />
             </div>
+            <ValidationMessage For="@(() => Form.Email)" />
             <div class="form-password input-group">
-                <label class="" for="Form.Password">PASSWORD</label>
-                <InputText @bind-Value="Form.Password" id="Form.Password" />
-                <div></div>
+                <label for="Form.Password">PASSWORD</label>
+                <InputText type="password" @bind-Value="Form.Password" id="Form.Password" />               
             </div>
+            <ValidationMessage For="@(() => Form.Password)" />
             <div class="form-confirm input-group">
-                <label class="" for="Form.ConfirmPassword">CONFIRMPASSWORD</label>
-                <InputText @bind-Value="Form.ConfirmPassword" id="Form.ConfirmPassword" />
-                <div></div>
+                <label for="Form.ConfirmPassword">CONFIRM PASSWORD</label>
+                <InputText type="password" @bind-Value="Form.ConfirmPassword" id="Form.ConfirmPassword" />              
             </div>
+            <ValidationMessage For="@(() => Form.ConfirmPassword)" />
             <button class="btn btn-main" type="submit">Sign Up</button>
 
         </EditForm>
@@ -63,8 +65,11 @@
 
 
 @code {
-    private SignUpViewModel Form;
-    private EditContext editContext = null!;
+    [SupplyParameterFromForm]
+    private SignUpViewModel Form { get; set; } = null!;
+    private EditContext? editContext;
+    private string ErrorMessage = "";
+    private string AlertDisplayCss = "collapse"; 
 
     protected override void OnInitialized()
     {
@@ -77,13 +82,23 @@
     private void ValidateField (ChangeEventArgs e)
     {
 
-        editContext.Validate();
+        editContext!.Validate();
     }
 
 
-    private void HandleSubmit()
+    private async Task HandleSubmit()
     {
-        
+        if (Form != null)
+        {
+            try
+            {
+
+            }
+            catch
+            {
+                
+            }
+        }
 
     }
 }
