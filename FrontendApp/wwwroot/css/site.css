@@ -152,6 +152,10 @@ body {
   }
 }
 
+.collapse {
+  display: none;
+}
+
 .btn {
   display: flex;
   justify-content: center;
