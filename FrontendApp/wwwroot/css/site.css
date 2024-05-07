@@ -291,7 +291,7 @@ form .input-group label {
 form .checkbox-group input[type=checkbox] {
   margin-right: 10px;
 }
-form .checkbox-group .input-group {
+form .checkbox-group .input-group-checkbox {
   display: flex;
   align-items: center;
 }
