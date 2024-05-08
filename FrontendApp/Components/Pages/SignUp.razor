@@ -1,6 +1,5 @@
 ﻿@page "/SignUp"
-@using System.ComponentModel.DataAnnotations
-@using FrontendApp.ViewModels
+
 
 <section class="signup">
     <div class="container">
@@ -9,36 +8,40 @@
             <h4>Sign up</h4>
         </div>
         <h1>Sign Up</h1>
-        <div class=""></div>
+        <div class="alert alert-danger @AlertDisplayCss"> 
+            @ErrorMessage
+        </div>
         <EditForm EditContext="editContext" OnSubmit="HandleSubmit" FormName="SignUp">
             <DataAnnotationsValidator />
 
-            <div class="form-firstname input-group">
-                <label  for="Form.FirstName">FIRST NAME</label>
-                <InputText @bind-Value="Form.FirstName" id="Form.FirstName"/>
-            </div>
-            <ValidationMessage For="@(() => Form.FirstName)" />
-            <div class="form-lastname input-group">
-                <label for="Form.LastName">LAST NAME</label>
-                <InputText @bind-Value="Form.LastName" id="Form.LastName" />
-            </div>
-            <ValidationMessage For="@(() => Form.LastName)" />
-            <div class="form-email input-group">
-                <label for="Form.Email">EMAIL</label>
-                <InputText type="email" @bind-Value="Form.Email" id="Form.Email" />
-            </div>
-            <ValidationMessage For="@(() => Form.Email)" />
-            <div class="form-password input-group">
-                <label for="Form.Password">PASSWORD</label>
-                <InputText type="password" @bind-Value="Form.Password" id="Form.Password" />               
-            </div>
-            <ValidationMessage For="@(() => Form.Password)" />
-            <div class="form-confirm input-group">
-                <label for="Form.ConfirmPassword">CONFIRM PASSWORD</label>
-                <InputText type="password" @bind-Value="Form.ConfirmPassword" id="Form.ConfirmPassword" />              
-            </div>
-            <ValidationMessage For="@(() => Form.ConfirmPassword)" />
-            <button class="btn btn-main" type="submit">Sign Up</button>
+           <div class="signup-form">
+                <div class="form-firstname input-group">
+                    <label for="Form.FirstName">FIRST NAME</label>
+                    <InputText @bind-Value="Form.FirstName" id="Form.FirstName" />
+                </div>
+                <ValidationMessage For="@(() => Form.FirstName)" />
+                <div class="form-lastname input-group">
+                    <label for="Form.LastName">LAST NAME</label>
+                    <InputText @bind-Value="Form.LastName" id="Form.LastName" />
+                </div>
+                <ValidationMessage For="@(() => Form.LastName)" />
+                <div class="form-email input-group">
+                    <label for="Form.Email">EMAIL</label>
+                    <InputText type="email" @bind-Value="Form.Email" id="Form.Email" />
+                </div>
+                <ValidationMessage For="@(() => Form.Email)" />
+                <div class="form-password input-group">
+                    <label for="Form.Password">PASSWORD</label>
+                    <InputText type="password" @bind-Value="Form.Password" id="Form.Password" />
+                </div>
+                <ValidationMessage For="@(() => Form.Password)" />
+                <div class="form-confirm input-group">
+                    <label for="Form.ConfirmPassword">CONFIRM PASSWORD</label>
+                    <InputText type="password" @bind-Value="Form.ConfirmPassword" id="Form.ConfirmPassword" />
+                </div>
+                <ValidationMessage For="@(() => Form.ConfirmPassword)" />
+                <button class="btn btn-main" type="submit">Sign Up</button>
+           </div>
 
         </EditForm>
 
@@ -92,11 +95,23 @@
         {
             try
             {
+                var httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, $"manero-authenticationprovider.azurewebsites.net/api/SignUp");
+                var result = await _http.PostAsJsonAsync("manero-authenticationprovider.azurewebsites.net/api/SignUp", Form);
+                if (result.IsSuccessStatusCode)
+                {
+                    Navigation.NavigateTo("/Verify");
+                }
+                else
+                {
+                    ErrorMessage = "Unable to register account. Please try again";
+                    AlertDisplayCss = "";
+                }
 
             }
             catch
             {
-                
+                ErrorMessage = "Please fill in the form correctly";
+                AlertDisplayCss = "";
             }
         }
 

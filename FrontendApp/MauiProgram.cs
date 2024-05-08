@@ -20,6 +20,7 @@ namespace FrontendApp
     		builder.Services.AddBlazorWebViewDeveloperTools();
     		builder.Logging.AddDebug();
 #endif
+            builder.Services.AddScoped(sp => new HttpClient());
 
             return builder.Build();
         }
