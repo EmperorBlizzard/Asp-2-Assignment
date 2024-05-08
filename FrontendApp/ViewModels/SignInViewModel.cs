@@ -16,5 +16,5 @@ public class SignInViewModel
     [Required]
     public string Password { get; set; } = null!;
 
-    public string? RememberMe { get; set; }
+    public bool RememberMe { get; set; }
 }

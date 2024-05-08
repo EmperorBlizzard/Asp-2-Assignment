@@ -40,6 +40,7 @@
     }
 
     .signin .container .signin-form {
+        display: grid;
         width: 300px;
         gap: 20px;
         grid-template-columns: 1fr;
@@ -54,45 +55,11 @@
 
 .signin .container .signin-form .form-email {
     grid-area: email;
-    position: relative;
-    border: 1px solid var(--color-light-gray);
-    border-radius: 999px;
 }
-
-    .signin .container .signin-form .form-email label {
-        position: absolute;
-        top: 0;
-        left: 25px;
-        margin-top: -10px;
-        background-color: var(--color-white);
-        font-size: 12px;
-    }
-
-    .signin .container .signin-form .form-email .signin-input {
-        border: none;
-        background-color: transparent;
-    }
 
 .signin .container .signin-form .form-password {
     grid-area: password;
-    position: relative;
-    border: 1px solid var(--color-light-gray);
-    border-radius: 999px;
 }
-
-    .signin .container .signin-form .form-password label {
-        position: absolute;
-        top: 0;
-        left: 25px;
-        margin-top: -10px;
-        background-color: var(--color-white);
-        font-size: 12px;
-    }
-
-    .signin .container .signin-form .form-password .signin-input {
-        border: none;
-        background-color: transparent;
-    }
 
 .signin .container .signin-form .form-remember-forgot {
     grid-area: rememberforgot;
