@@ -36,6 +36,7 @@
     }
 
     .signup .container .signup-form {
+        display: grid;
         width: 300px;
         gap: 20px;
         grid-template-columns: 1fr;
