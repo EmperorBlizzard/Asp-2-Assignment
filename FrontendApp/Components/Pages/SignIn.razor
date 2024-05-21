@@ -1,51 +1,110 @@
 ﻿@page "/SignIn"
 
-
 <section class="signin">
     <div class="container">
         <div class="top-nav">
             <i class="fa-solid fa-chevron-left"></i>
-            <h4>Sign in</h4>
+            <h4>Sign In</h4>
         </div>
-        <h1>Welcome Back!</h1>
-        <p class="font-16 text">Sign in to continue</p>
-        <form class="signin-form">
-            <div class="form-email input-group">
-                <label for="email">EMAIL</label>
-                <input type="text" id="email" class="signin-input" />
-            </div>
-            <div class="form-password input-group">
-                <label for="password">PASSWORD</label>
-                <input type="text" id="password" class="signin-input" />
-            </div>
-            <div class="form-remember-forgot">
-                <div class="checkbox-group">
-                    <div class="input-group-checkbox">
-                        <input type="checkbox" id="remember">
-                        <label for="remember">Remember me</label>
-                    </div>
-                </div>
-                <a href="#">Forgot password?</a>
-            </div>
-            <button class="btn btn-main" type="submit">SIGN IN</button>
-        </form>
+        <h1>Sign In</h1>
 
-        <p class="have-account font-16">Don’t have an account? <a href="#">Sign up.</a></p>
+        <EditForm EditContext="editContext" OnValidSubmit="HandleSubmit" FormName="SignIn">
+            <DataAnnotationsValidator />
+
+            <div class="signin-form">
+
+                <div class="form-email input-group">
+                    <label for="Form.Email">EMAIL</label>
+                    <InputText type="email" @bind-Value="Form.Email" id="Form.Email" />
+                </div>
+
+                <ValidationMessage For="@(() => Form.Email)" />
+
+                <div class="form-password input-group">
+                    <label for="Form.Password">PASSWORD</label>
+                    <InputText type="password" @bind-Value="Form.Password" id="Form.Password" />
+                </div>
+                <ValidationMessage For="@(() => Form.Password)" />
+
+                <div class="form-remember-forgot">
+                    <div class="checkbox-group">
+                        <div class="input-group-checkbox">
+                            <InputCheckbox @bind-Value="Form.RememberMe" id="remember" />
+                            <label for="remember">Remember me</label>
+                        </div>
+                    </div>
+                    <a href="#">Forgot password?</a>
+                </div>
+                <button class="btn btn-main" type="submit">Sign Up</button>
+
+            </div>
+        </EditForm>
+
+        <p class="have-account font-16">Don’t have an account? <NavLink href="/signup">Sign up.</NavLink></p>
 
         <div class="socials">
-            <a class="facebook" href="./facebook.html">
+            <NavLink class="facebook" href="#">
                 <i class="fa-brands fa-facebook-f"></i>
-            </a>
-            <a class="twitter" href="#">
+            </NavLink>
+            <NavLink class="twitter" href="#">
                 <i class="fa-brands fa-twitter"></i>
-            </a>
-            <a class="google" href="#">
+            </NavLink>
+            <NavLink class="google" href="#">
                 <i class="fa-brands fa-google-plus-g"></i>
-            </a>
+            </NavLink>
+
         </div>
     </div>
+    
 </section>
 
 @code {
+    [SupplyParameterFromForm]
+    private SignInViewModel Form { get; set; } = null!;
+    private EditContext? editContext;
+    private string ErrorMessage = "";
+    private string AlertDisplayCss = "collapse";
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        {
+            Form = new SignInViewModel();
+            editContext = new EditContext(Form);
+        }
+    }
+
+    private void ValidateField(ChangeEventArgs e)
+    {
+
+        editContext!.Validate();
+    }
+
+    private async Task HandleSubmit()
+    {
+        if (Form != null)
+        {
+            try
+            {
+                var result = await _http.PostAsJsonAsync($"http://localhost:7234/api/SignUp", Form);
+                if (result.IsSuccessStatusCode)
+                {
+                    Navigation.NavigateTo("/Verify");
+                }
+                else
+                {
+                    ErrorMessage = "Unable to sign in. Please try again";
+                    AlertDisplayCss = "";
+                }
+
+            }
+            catch
+            {
+                ErrorMessage = "Please fill in the form correctly";
+                AlertDisplayCss = "";
+            }
+        }
+
+    }
 
 }

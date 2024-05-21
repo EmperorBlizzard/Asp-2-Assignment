@@ -45,18 +45,18 @@
 
         </EditForm>
 
-        <p class="have-account font-16">Already have an account? <a href="#">Sign in.</a></p>
+        <p class="have-account font-16">Already have an account? <NavLink href="/signin">Sign in.</NavLink></p>
 
         <div class="socials">
-            <a class="facebook" href="./facebook.html">
+            <NavLink class="facebook" href="#">
                 <i class="fa-brands fa-facebook-f"></i>
-            </a>
-            <a class="twitter" href="#">
+            </NavLink>
+            <NavLink class="twitter" href="#">
                 <i class="fa-brands fa-twitter"></i>
-            </a>
-            <a class="google" href="#">
+            </NavLink>
+            <NavLink class="google" href="#">
                 <i class="fa-brands fa-google-plus-g"></i>
-            </a>
+            </NavLink>
 
         </div>
 
@@ -95,8 +95,8 @@
         {
             try
             {
-                var httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, $"manero-authenticationprovider.azurewebsites.net/api/SignUp");
-                var result = await _http.PostAsJsonAsync("manero-authenticationprovider.azurewebsites.net/api/SignUp", Form);
+                
+                var result = await _http.PostAsJsonAsync("http://localhost:7234/api/SignUp", Form);
                 if (result.IsSuccessStatusCode)
                 {
                     Navigation.NavigateTo("/Verify");
