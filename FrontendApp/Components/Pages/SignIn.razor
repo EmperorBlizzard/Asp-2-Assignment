@@ -8,7 +8,7 @@
         </div>
         <h1>Sign In</h1>
 
-        <EditForm EditContext="editContext" OnSubmit="HandleSubmit" FormName="SignIn">
+        <EditForm EditContext="editContext" OnValidSubmit="HandleSubmit" FormName="SignIn">
             <DataAnnotationsValidator />
 
             <div class="signin-form">
@@ -86,8 +86,7 @@
         {
             try
             {
-                var httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, $"manero-authenticationprovider.azurewebsites.net/api/SignIn");
-                var result = await _http.PostAsJsonAsync("manero-authenticationprovider.azurewebsites.net/api/SignIn", Form);
+                var result = await _http.PostAsJsonAsync($"http://localhost:7234/api/SignUp", Form);
                 if (result.IsSuccessStatusCode)
                 {
                     Navigation.NavigateTo("/Verify");

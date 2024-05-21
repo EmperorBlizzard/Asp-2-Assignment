@@ -95,8 +95,8 @@
         {
             try
             {
-                var httpRequestMessage = new HttpRequestMessage(HttpMethod.Post, $"manero-authenticationprovider.azurewebsites.net/api/SignUp");
-                var result = await _http.PostAsJsonAsync("manero-authenticationprovider.azurewebsites.net/api/SignUp", Form);
+                
+                var result = await _http.PostAsJsonAsync("http://localhost:7234/api/SignUp", Form);
                 if (result.IsSuccessStatusCode)
                 {
                     Navigation.NavigateTo("/Verify");
